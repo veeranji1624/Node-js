@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+    
+  tools {nodejs "Node"}
+    
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/veeranji1624/Node-js.git'
+      }
+    }
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }      
+  }
+}
